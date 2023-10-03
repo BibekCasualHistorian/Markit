@@ -1,0 +1,66 @@
+.datamain2{
+    color:white;
+    width: 30%;
+    position: absolute;
+    top:14%;
+    right:5%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+  }
+  
+  th, td {
+    border: 4px solid white;
+    text-align: center;
+    padding: 8px;
+  }
+  
+  
+  h2 {
+    font-weight: bolder;
+    font-size: 30px;
+    margin-bottom: 10px;
+    margin-top: 27px;
+  }
+  
+  /* Style for the header row */
+  thead th {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+  }
+  
+  /* Style for the % Change column */
+  td:nth-child(3) {
+    text-align: center;
+  }
+  
+  td:nth-child(3)::before {
+    content: '+';
+  }
+  
+  td:nth-child(3)::before, td:nth-child(3)::after {
+    content: '';
+    font-size: 30px;
+    vertical-align: middle;
+  }
+  
+  td:nth-child(3):not(:first-child) {
+    text-align: center;
+  }
+  
+  /* Add additional styles as needed */
+  /* Data.css */
+
+/* Style increasing rows (green) */
+tr.increasing {
+    background-color: #3b7f52; /* Green */
+  }
+  
+  /* Style decreasing rows (red) */
+  tr.decreasing {
+    background-color: #881f2a; /* Red */
+  }
+  

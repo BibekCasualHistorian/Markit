@@ -1,8 +1,9 @@
 import React from "react";
-import FirstScreen from "./FirstScreen";
+import FirstScreen from "../Components/FirstScreen";
 import MarketOverview from "../Components/MarketOverview";
 import Navbar from "../Components/Navbar";
-import TrendingNews from "./TrendingNews";
+import TrendingNews from "../Components/TrendingNews";
+import Footer from "../Components/Footer";
 
 const Home =() =>{
     return(
@@ -12,6 +13,7 @@ const Home =() =>{
             <FirstScreen/>
             <MarketOverview/>
             <TrendingNews/>
+            <Footer/>
 
         </div>
     )

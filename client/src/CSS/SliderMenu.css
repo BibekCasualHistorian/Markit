@@ -1,0 +1,68 @@
+/* SliderMenu.css */
+.slider{
+    position:absolute;
+    top:17%;
+    width:10%;
+}
+
+.menu {
+    position: fixed;
+    top:35%;
+    left: -280px; /* Initially hidden */
+    width: 280px;
+    height: 55%;
+    background-color: rgb(214, 214, 214);
+    color: #734b6d;
+    overflow-y: auto;
+    transition: left 0.3s ease-in-out;
+    font-size: 30px;
+    border-radius: 0px 60px 60px 0px;
+  }
+  
+  .menu-content {
+    padding: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+ .menu-content li {
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding: 5px;
+    text-align: center;
+    background-color: #734b6d;
+    color:white;
+    border-radius: 30px;
+    height: 60px;
+  }
+
+  li:hover{
+    background-color: #42275a;
+  }
+  
+  link {
+    text-decoration: none;
+    color: #000000;
+  }
+  
+  .menu-toggle {
+    position: absolute;
+    top: 20px;
+    left:0px;
+    background-color: rgb(214, 214, 214);
+    color: #734b6d;
+    border: none;
+    padding: 10px 60px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: 800;
+    border-radius:60px;
+  }
+  
+  .open {
+    left: 0; /* Show the menu */
+  }
+  

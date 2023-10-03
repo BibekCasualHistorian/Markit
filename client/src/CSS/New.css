@@ -1,0 +1,113 @@
+
+  .news h1 {
+    font-size: 44px;
+    margin-top:20px ;
+    margin-bottom: 20px;
+    margin-left:17%;
+    color: white;
+    text-align: center;
+    width:50%;
+    background-color: #734b6d;
+  }
+  
+  .news-grid {
+    margin-top: 5%;
+    margin-left:2%;
+    display: grid;
+    grid-template-columns: repeat(3, 3fr);
+    gap: 100px;
+    width: 80%;
+  }
+  
+  .news-item {
+    background-color: #734b6d;
+    color: white;
+    border: 1px solid #42275a;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: left;
+    max-width: 500px;
+    height: 250px;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .news-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .news-grid h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+  }
+  
+  .news-grid p {
+    font-size: 14px;
+    color: #ffffff;
+    margin-bottom: 10px;
+  }
+
+  #description{
+    height: 110px;
+  }
+
+  #publish{
+    height: 25px;
+    width:80%;
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .news-grid a {
+    font-size: 14px;
+    color: white;
+    background-color:#42275a;
+    text-decoration: none;
+    display: inline-block;
+    padding: 4px;
+  }
+  
+  .news-grid a:hover {
+    text-decoration: underline;
+  }
+  
+
+  /* Style for the category buttons */
+.category-buttons {
+    position: absolute;
+    top:20%;
+    right:0.3%;
+    display: flex;
+    flex-direction: column; /* Display buttons vertically */
+    gap: 10px;
+    margin: 20px;
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    width:12%;
+  }
+  
+  .category-buttons button {
+    background-color:#734b6d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .category-buttons button.active {
+    background-color:#42275a;
+  }
+  
+  .sort-buttons button{
+    background-color: #734b6d;
+    color: #fff;
+    height: 50px;
+    width: 105px;
+  }
+
+  h5{
+    color: #42275a;
+    font-weight: bolder;
+  }

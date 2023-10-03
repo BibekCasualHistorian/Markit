@@ -7,19 +7,22 @@ const Schema = mongoose.Schema;
 
 const UserSchema = new Schema(
   {
-    username: {
-      type: String,
-      required: true,
-    },
-  },
-  {
     email: {
       type: String,
       required: true,
+      unique: true,
     },
     password: {
       type: String,
       required: true,
+    },
+    phone_no: {
+      type: Number,
+      required: false,
+    },
+    gender: {
+      type: String,
+      required: false,
     },
   },
   {
@@ -69,6 +72,8 @@ UserSchema.statics.login = async function (email, password) {
   if (!user) {
     throw Error("No user with such Email");
   }
+
+  console.log("is user available", user);
 
   // console.log("user", user);
 

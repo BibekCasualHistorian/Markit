@@ -1,10 +1,10 @@
 /*news*/
-.sec
+.tnsec
 {
 	position: relative;
 	padding: 100px;
 }
-.sec h2
+.tnsec h2
 {
 	font-size: 3.5em;
 	margin-bottom: 10px;
@@ -15,7 +15,7 @@
         
 }
 
- .sec h2:before,
+ .tnsec h2:before,
         h2:after {
             content: "";
             flex: 1 1;
@@ -23,7 +23,7 @@
             margin: auto;
 
         }
-.container
+.tncontainer
 {
 	display: grid;
 	position: relative;
@@ -34,7 +34,7 @@
 	grid-auto-flow: dense;
 	grid-gap: 10px;
 }
-.container .box{
+.tncontainer .tnbox{
 	background: #734b6d;
 	padding: 20px;
 	display: grid;
@@ -43,26 +43,26 @@
 	color: white;
 	transition: 0.5s;
 }
-.container .box:hover
+.tncontainer .tnbox:hover
 {
 	background:#42275a ;
 }
-.container .box:nth-child(1)
+.tncontainer .tnbox:nth-child(1)
 {
 	grid-column: span 2;
 	grid-row: span 1;
 }
-.container .box:nth-child(2)
+.tncontainer .tnbox:nth-child(2)
 {
 	grid-column: span 2;
 	grid-row: span 1;
 }
-.container .box:nth-child(4)
+.tncontainer .tnbox:nth-child(4)
 {
 	grid-column: span 1;
 	grid-row: span 2;
 }
-.container .box:nth-child(5)
+.tncontainer .tnbox:nth-child(5)
 {
 	grid-column: span 3;
 	grid-row: span 2;

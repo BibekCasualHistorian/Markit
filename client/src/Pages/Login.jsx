@@ -1,176 +1,107 @@
-// import React, { Component } from 'react';
-// import '../CSS/Login.css'; // Import your CSS file
 
-// class Login extends Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       email: '',
-//       password: '',
-//     };
-//   }
 
-//   handleInputChange = (event) => {
-//     this.setState({
-//       [event.target.name]: event.target.value,
-//     });
-//   };
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import '../CSS/Login.css';
+import { AuthContext } from '../store/AuthContext';
 
-//   handleLogin = (event) => {
-//     event.preventDefault();
-//     const { email, password } = this.state;
-//     if (email === 'student@gmail.com' && password === '1234') {
-//       // Redirect to the details page
-//       window.location.href = 'details.html';
-//     } else {
-//       alert('Invalid username and password');
-//     }
-//   };
+const Login = () => {
 
-//   render() {
-//     return (
-//       <div  className="bg-gradient-to-b from-[#42275a] to-[#734b6d]" >
-//       <div className="wrapper bg-gradient-to-b from-[#42275a] to-[#734b6d] ">
-//         <div className="form-box login">
-//           <h2>Login</h2>
-//           <form action="#" className="myform">
-//             <div className="input-box">
-//               <span className="icon">
-//                 {/* Include your ion-icons component here */}
-//               </span>
-//               <input
-//                 type="email"
-//                 name="email"
-//                 id="email"
-//                 value={this.state.email}
-//                 onChange={this.handleInputChange}
-//                 required
-//               />
-//               <label htmlFor="email">Email</label>
-//             </div>
-//             <div className="input-box">
-//               <span className="icon">
-//                 {/* Include your ion-icons component here */}
-//               </span>
-//               <input
-//                 type="password"
-//                 name="password"
-//                 id="password"
-//                 value={this.state.password}
-//                 onChange={this.handleInputChange}
-//                 required
-//               />
-//               <label htmlFor="password">Password</label>
-//             </div>
-//             <div className="remember-forgot">
-//               <label>
-//                 <input type="checkbox" /> Remember me
-//               </label>
-//               <a href="#">Forget Password</a>
-//             </div>
-//             <button type="submit" className="bn" onClick={this.handleLogin}>
-//               Login
-//             </button>
-//             <div className="login-register">
-//               <p>
-//                 Dont have an account?
-//                 <a href="./Pages/Login.jsx" className="register-link">
-//                   Register
-//                 </a>
-//               </p>
-//             </div>
-//           </form>
-//         </div>
-//       </div>
-//       </div>
-//     );
-//   }
-// }
+  const { dispatch } = useContext(AuthContext)
 
-// export default Login;
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
-import '../CSS/Login.css'; // Import your CSS file
+  const [error, setError] = useState("")
 
-class Login extends Component {
-  constructor() {
-    super();
-    this.state = {
-      email: '',
-      password: '',
-    };
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  handleInputChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
-
-  handleLogin = (event) => {
-    event.preventDefault();
-    const { email, password } = this.state;
-    if (email === 'student@gmail.com' && password === '1234') {
-      // Redirect to the details page
-      window.location.href = 'details.html';
-    } else {
-      alert('Invalid username and password');
+    const postData = async () => {
+      const datas = {
+        email,
+        password
+      }
+      const res = await fetch("http://localhost:3000/user/login", {
+        method: "POST",
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(datas),
+      })
+      if(res.ok) {
+        const data = await res.json()
+        localStorage.setItem("user", JSON.stringify(data))
+        dispatch({type: "LOGIN", payload: data})
+      }
+      if(!res.ok) {
+        const data = await res.json()
+        setError(data.error)
+      }
     }
-  };
-
-  render() {
-    return (
-        <div className="wrapper bg-gradient-to-b from-[#42275a] to-[#734b6d]">
-          <div className="form-box login">
-            <h2>Login</h2>
-            <form action="#" className="myform">
-              <div className="input-box">
-                <span className="icon">{/* Include your ion-icons component here */}</span>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  value={this.state.email}
-                  onChange={this.handleInputChange}
-                  required
-                />
-                <label htmlFor="email">Email</label>
-              </div>
-              <div className="input-box">
-                <span className="icon">{/* Include your ion-icons component here */}</span>
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  value={this.state.password}
-                  onChange={this.handleInputChange}
-                  required
-                />
-                <label htmlFor="password">Password</label>
-              </div>
-              <div className="remember-forgot">
-                <label>
-                  <input type="checkbox" /> Remember me
-                </label>
-                <a href="#">Forget Password</a>
-              </div>
-              <button type="submit" className="bn" onClick={this.handleLogin}>
-                Login
-              </button>
-              <div className="login-register">
-                <p>
-                  Dont have an account?
-                  <Link to="/Register" className="register-link"> {/* Use Link here */}
-                    Register
-                  </Link>
-                </p>
-              </div>
-            </form>
-          </div>
-        </div>
-    );
+    postData()
   }
-}
+
+  return (
+    <div className="wrapper bg-gradient-to-b from-[#42275a] to-[#734b6d]">
+      <div className="form-box login">
+        <h2>Login</h2>
+
+        <form action="#" className="myform" onSubmit={handleSubmit}>
+
+          <div className="input-box">
+            <span className="icon">{/* Include your ion-icons component here */}</span>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <label htmlFor="email">Email</label>
+          </div>
+
+          <div className="input-box">
+            <span className="icon">{/* Include your ion-icons component here */}</span>
+            <input
+              type="text"
+              name="password"
+              id="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <label htmlFor="password">Password</label>
+          </div>
+
+          <div className="remember-forgot">
+            <label>
+              <input type="checkbox" /> Remember me
+            </label>
+            {/* <a href="#">Forget Password</a> */}
+          </div>
+
+          <button type="submit" className="bn">Login</button>
+
+          <div className="login-register">
+            <p>
+              Dont have an account?
+              <Link to="/Register" className="register-link">
+                Register
+              </Link>
+            </p>
+          </div>
+
+          {
+            error && <p>{error}</p>
+          }
+        </form>
+
+        
+      </div>
+    </div>
+  );
+};
 
 export default Login;

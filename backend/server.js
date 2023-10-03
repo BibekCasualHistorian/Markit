@@ -1,11 +1,14 @@
 const connectDB = require("./db/connect");
+const marketRouter = require("./routes/MarketRoutes");
 const router = require("./routes/UserRoutes");
 
 const cors = require("cors");
 
-// Sensitive Information
-const password = `bibek123`;
-const mongoUri = `mongodb+srv://root:${password}@cluster0.szmvgjc.mongodb.net/?retryWrites=true&w=majority`;
+// Sensitive Information / Express Credentials
+const password = "root123";
+const mongoUri = `mongodb+srv://root:${password}@cluster0.xmdneb8.mongodb.net/?retryWrites=true&w=majority&appName=AtlasApp`;
+// const password = `bibek123`;
+// const mongoUri = `mongodb+srv://root:${password}@cluster0.szmvgjc.mongodb.net/?retryWrites=true&w=majority`;
 
 // Express Declaration
 const express = require("express");
@@ -18,11 +21,12 @@ app.use(express.json());
 
 // Routes
 app.use("/user", router);
+app.use("/market", marketRouter);
 
 // Connection to Database
 connectDB(mongoUri)
   .then(() => {
-    app.listen(PORT, () =>
+    app.listen(3000, () =>
       console.log(`Example app listening on PORT ${PORT}!`)
     );
   })

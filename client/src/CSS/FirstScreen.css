@@ -1,0 +1,51 @@
+.gs-btn {
+    background-color:#815d7c;
+    color: white;
+    border: 3px solid grey;
+    height: 70px;
+    width: 300px;
+    position: absolute;
+    top: 37%;
+    left: 43%;
+    border-radius:100px; /* Half of the button's height */
+    font-size: 30px;
+  }
+
+   /*parallax scrolling*/
+section
+{
+	  position: relative;
+	  width: 100%;
+	  height: 100%;
+   	display: flex;
+   	align-items: center;
+   	justify-content: center; 
+   	overflow: hidden;
+}
+section::before
+{
+	content: '';
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 100px;
+	background: linear-gradient(to top,#42275a,transparent);
+	z-index: 1000;
+
+}
+  
+ section img
+ {
+ 	position: absolute;
+ 	top: 0%;
+ 	left: 0%;
+ 	width: 100%;
+ 	height: 100%;
+ 	object-fit: cover;
+ 	pointer-events: none;
+ }
+ 
+ section img#gain
+ {
+ 	z-index: 10;
+ }

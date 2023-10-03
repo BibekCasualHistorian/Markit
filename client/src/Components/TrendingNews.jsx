@@ -4,50 +4,50 @@ import "../CSS/TrendingNews.css";
 const TrendingNews = () =>{
     return(
 
-        <div class="sec">
+        <div className="tnsec">
 		    
             <h2> Trending News</h2>
 
-            <div class="container">
+            <div className="tncontainer">
 
-                <div class="box">
-                    <div class="bcontent">
+                <div className="tnbox">
+                    <div className="tncontent">
                         <p>new news about stock market</p>
                     </div>
                 </div>
 
-                <div class="box">
-                    <div class="bcontent">
+                <div className="tnbox">
+                    <div className="tncontent">
                         <p>new news about stock market</p>
                     </div>
                 </div>
 
-                <div class="box">
-                    <div class="bcontent">
+                <div className="tnbox">
+                    <div className="tncontent">
                         <p>new news about stock market</p>
                     </div>
                 </div>
 
-                <div class="box">
-                    <div class="bcontent">
+                <div className="tnbox">
+                    <div className="tncontent">
                         <p>new news about stock market</p>
                     </div>
                 </div>
 
-                <div class="box">
-                    <div class="bcontent">
+                <div className="tnbox">
+                    <div className="tncontent">
                         <p>new news about stock market</p>
                     </div>
                 </div>
 
-                <div class="box">
-                    <div class="bcontent">
+                <div className="tnbox">
+                    <div className="tncontent">
                         <p>new news about stock market</p>
                     </div>
                 </div>  
 
-                <div class="box">
-                    <div class="bcontent">
+                <div className="tnbox">
+                    <div className="tncontent">
                         <p>new news about stock market</p>
                     </div>
                 </div>
